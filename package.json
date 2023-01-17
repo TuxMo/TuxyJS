@@ -1,0 +1,33 @@
+{
+  "name": "@tuxmo/tuxy",
+  "version": "0.0.1",
+  "description": "Simple web framework built with Express JS",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TuxMo/TuxyJS.git"
+  },
+  "keywords": [
+    "framework",
+    "web",
+    "express",
+    "tuxy",
+    "tuxmo",
+    "rest",
+    "restful",
+    "router",
+    "api",
+    "app",
+    "http"
+  ],
+  "author": "CodeMangler",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/TuxMo/TuxyJS/issues"
+  },
+  "homepage": "https://github.com/TuxMo/TuxyJS#readme"
+}
