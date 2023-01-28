@@ -61,4 +61,7 @@ typings/
 database.json
 
 # Jetbrains
-.idea/workspace.xml
+.idea
+
+# MacOS
+.DS_Store
