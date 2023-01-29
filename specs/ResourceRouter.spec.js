@@ -1,5 +1,5 @@
 import ResourceRouter from '../lib/ResourceRouter';
-import express from "express";
+import express from 'express';
 
 describe('ResourceRouter', () => {
   const noOp = () => {

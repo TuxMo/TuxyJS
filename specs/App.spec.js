@@ -84,4 +84,24 @@ describe('App', () => {
       });
     });
   });
+
+  describe('#configureMiddleware', () => {
+    it('adds Sentry handlers to capture errors', () => {
+      expect(app.raw).toHaveMiddleware('sentryRequestMiddleware');
+      expect(app.raw).toHaveMiddleware('sentryErrorMiddleware');
+    });
+
+    it('adds Pino for logging', () => {
+      expect(app.raw).toHaveMiddleware('pinoLogger');
+    });
+
+    it('adds cookie-parser for parsing cookies', () => {
+      expect(app.raw).toHaveMiddleware('cookieParser');
+    });
+
+    it('adds body-parser for parsing url-encoded forms and JSON bodies', () => {
+      expect(app.raw).toHaveMiddleware('urlencodedParser');
+      expect(app.raw).toHaveMiddleware('jsonParser');
+    });
+  });
 });

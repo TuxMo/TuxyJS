@@ -1,6 +1,6 @@
 import FS from '../lib/FSUtils';
-import {fileURLToPath} from "url";
-import path from "path";
+import {fileURLToPath} from 'url';
+import path from 'path';
 import fs from 'fs';
 
 describe('FSUtils', () => {
