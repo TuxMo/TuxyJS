@@ -104,4 +104,55 @@ describe('App', () => {
       expect(app.raw).toHaveMiddleware('jsonParser');
     });
   });
+
+  describe('#start', () => {
+    let httpServer = null;
+
+    afterEach(() => {
+      if (httpServer && httpServer.close) {
+        httpServer.close();
+        httpServer = null;
+      }
+    });
+
+    it('starts express server at the specified PORT number', () => {
+      process.env.APP_PORT = 54321;
+      httpServer = app.start();
+      expect(httpServer).not.toBeNull();
+      expect(httpServer.listening).toBeTruthy();
+      expect(httpServer.address().port).toEqual(54321);
+    });
+
+    it('starts express server at the default app port when an explicit port is not specified', () => {
+      delete process.env.APP_PORT;
+      httpServer = app.start();
+      expect(httpServer.address().port).toEqual(App.DEFAULT_APP_PORT);
+    });
+  });
+
+  describe('#stop', () => {
+    let httpServer = null;
+
+    afterEach(() => {
+      if (httpServer && httpServer.close) {
+        httpServer.close();
+        httpServer = null;
+      }
+    });
+
+    it('does nothing when there is no server to stop', () => {
+      expect(app.__httpServer).toBeNull();
+      app.stop();
+      expect(app.__httpServer).toBeNull();
+    });
+
+    it('stops the currently running server', () => {
+      httpServer = app.start();
+      expect(httpServer).not.toBeNull();
+      expect(httpServer.listening).toBeTruthy();
+
+      app.stop();
+      expect(httpServer.listening).toBeFalsy();
+    });
+  });
 });
