@@ -1,8 +1,9 @@
 {
   "name": "@tuxmo/tuxy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple web framework built with Express JS",
   "main": "index.js",
+  "private": false,
   "type": "module",
   "author": "CodeMangler",
   "license": "Apache-2.0",
