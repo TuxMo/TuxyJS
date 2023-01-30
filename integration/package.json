@@ -1,0 +1,22 @@
+{
+  "name": "tuxy-example",
+  "version": "0.0.1",
+  "description": "Example application built with TuxyJS",
+  "main": "Integration.spec.js",
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf node_modules && rm -f yarn.lock && rm -f ../tuxmo-tuxy.gz",
+    "generate-package": "cd .. && yarn pack -f tuxmo-tuxy.gz",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "integration-tests": "yarn run clean && yarn run generate-package && yarn install && yarn run test && yarn run clean"
+  },
+  "author": "CodeMangler",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@tuxmo/tuxy": "file:./../../../tuxmo-tuxy.tgz"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1",
+    "yarn": "^1.22.19"
+  }
+}

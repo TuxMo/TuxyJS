@@ -125,10 +125,11 @@ describe('App', () => {
   describe('#start', () => {
     let httpServer = null;
 
-    afterEach(() => {
+    afterEach((done) => {
       if (httpServer && httpServer.close) {
         httpServer.close();
         httpServer = null;
+        done();
       }
     });
 

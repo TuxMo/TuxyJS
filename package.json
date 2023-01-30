@@ -29,8 +29,12 @@
     "http"
   ],
   "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/integration"
+    ],
     "coveragePathIgnorePatterns": [
-      "<rootDir>/specs/fixtures"
+      "<rootDir>/specs/fixtures",
+      "<rootDir>/integration"
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/lib/CustomJestMatchers.js"
@@ -38,7 +42,8 @@
   },
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/.bin/jest",
-    "coverage": "yarn run test --coverage"
+    "coverage": "yarn run test --coverage",
+    "integration": "cd integration && yarn run integration-tests"
   },
   "dependencies": {
     "@sentry/node": "^7.34.0",
