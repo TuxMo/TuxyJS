@@ -1,6 +1,6 @@
 {
   "name": "@tuxmo/tuxy",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Simple web framework built with Express JS",
   "main": "index.js",
   "private": false,
