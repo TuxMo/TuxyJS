@@ -41,7 +41,7 @@
     ]
   },
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/.bin/jest --ci --forceExit",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --ci --forceExit --detectOpenHandles",
     "coverage": "yarn run test --coverage",
     "integration": "cd integration && yarn run integration-tests"
   },
