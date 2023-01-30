@@ -12,6 +12,23 @@ describe('App', () => {
     await app.ready;
   });
 
+  describe('construction', () => {
+    it('is not allowed if a root directory is not supplied', () => {
+      const expectedErrorMessage = 'A root directory containing source files is required';
+      expect(() => new App()).toThrow(expectedErrorMessage);
+      expect(() => new App(null)).toThrow(expectedErrorMessage);
+      expect(() => new App(undefined)).toThrow(expectedErrorMessage);
+    });
+
+    it('is not allowed if the supplied root directory does not exist', () => {
+      expect(() => new App('invalid-directory')).toThrow('The specified directory - invalid-directory - does not exist or is not accessible')
+    });
+
+    it('succeeds when a valid root directory is supplied', () => {
+      expect(() => new App(path.join(__dirname))).not.toThrowError();
+    });
+  });
+
   describe('#loadFiles', () => {
     beforeEach(async () => {
       await app.loadFiles();
