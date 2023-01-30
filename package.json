@@ -41,7 +41,7 @@
     ]
   },
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --ci --forceExit",
     "coverage": "yarn run test --coverage",
     "integration": "cd integration && yarn run integration-tests"
   },
